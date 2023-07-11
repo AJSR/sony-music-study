@@ -11,8 +11,8 @@ from requests.exceptions import ReadTimeout
 # These are the Client ID and Client Secret needed to access the API. These are obtained in the 
 # Spotify API web
 
-cid = ''
-secret = ''
+cid = '5e40aa8e51864f7c86f0ee9481dbe45b'
+secret = '8d25a2e13be542cb89a2daca2dcaab2b'
 
 # requests_timeout and retries parameters need to be changed to 10 to avoid timeouts from the API
 
@@ -28,9 +28,9 @@ temp_list = []
 # Get a dataframe with the albums and artists ids
 for a in artists_ids.values():
     try:
-        response = sp.artist_albums(a)
+        response = sp.artist_albums(artist_id=a, album_type='album,single', limit=50)
     except ReadTimeout:
-        response = sp.artist_albums(a)
+        response = sp.artist_albums(artist_id=a, album_type='album,single', limit=50)
     except:
         (f'Something went wrong with artist {a}')
     else:
@@ -74,7 +74,7 @@ for i in range(0, len_albs, st):
         total_albums = len(response['albums'])
         for j in range(total_albums):
             album_info = response['albums'][j]
-            album_type_list.append(album_info['type'])
+            album_type_list.append(album_info['album_type'])
             album_name_list.append(album_info['name'])
             album_release_list.append(album_info['release_date'])
             album_label_list.append(album_info['label'])

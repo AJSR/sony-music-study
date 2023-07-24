@@ -11,8 +11,8 @@ from requests.exceptions import ReadTimeout
 # These are the Client ID and Client Secret needed to access the API. These are obtained in the 
 # Spotify API web
 
-cid = '5e40aa8e51864f7c86f0ee9481dbe45b'
-secret = '8d25a2e13be542cb89a2daca2dcaab2b'
+cid = ''
+secret = ''
 
 # requests_timeout and retries parameters need to be changed to 10 to avoid timeouts from the API
 
